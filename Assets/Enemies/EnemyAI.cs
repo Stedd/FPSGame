@@ -28,4 +28,10 @@ public class EnemyAI : MonoBehaviour
         return Vector3.Distance(gameObject.transform.position, targetPosition);
     }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
+    }
+
 }
