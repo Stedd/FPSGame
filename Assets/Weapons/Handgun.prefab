@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4531602420244830}
   m_Layer: 0
-  m_Name: WM_SF_Wp01_f
+  m_Name: Handgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
