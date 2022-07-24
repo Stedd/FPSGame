@@ -1,0 +1,72 @@
+****Game Name****
+	TBD
+	Temporary name: FPSGame
+	
+****Game Type****
+	- FPS
+		- Defend vital components to space station
+		- Waves of Enemies
+
+****Game Theme****
+
+Story:
+	Defend against an invading enemies who have trying to destroy your space station
+	
+Art:
+	Sci-Fi
+	
+****Tech Setup****
+Platform:
+	PC/MAC/Linux
+Aspect Ratio:
+	1920x1080	16:9
+Input:
+	Mouse and keyboard
+
+
+****Game Design Notes****
+
+Player Experience:
+	- Intense
+
+Core Mechanic:
+	- Shoot enemies
+
+Core Game loop:
+	- Collect Ammo
+	- Shoot enemies
+	- Clear station of enemies
+
+
+****Game Features****
+Onion Design
+
+Identify your core feature and start there and work your way outward where features decrease in importance.
+Write down the most important features of your game
+1. First Person Camera movement
+2. Raycasting to shoot
+3. Enemy move and attack AI
+4. Health and damage system
+5. Death / gameover
+6. Weapon switching
+7. Ammo and ammo pickups
+8. Flashight and battery pickup
+9. Probuilder geometry
+
+Additional Features to consider:
+1. Enemy Pathfinding	Enemies will nynamically change their path
+2. Build Timer				Towers take n time to complete when built
+3. 
+4. 
+5. 
+
+
+By using this method you can answer some questions which often come up as you design you game
+here are some examples:
+
+	What features should I include in my game?
+	Where should i start development?
+	What are my priorities?
+	What if I run out of time?
+	When should I stop?
+
