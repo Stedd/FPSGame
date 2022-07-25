@@ -73,8 +73,11 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectRange);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, navMeshAgent.stoppingDistance);
+        if (navMeshAgent != null)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, navMeshAgent.stoppingDistance);
+        }
     }
 
 }

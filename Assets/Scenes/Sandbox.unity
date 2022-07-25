@@ -258,23 +258,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5d2e4237b4429b34fae4c9eb3cd9efd5, type: 3}
   m_PrefabInstance: {fileID: 101430667}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &191840518 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6326861089322885425, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-  m_PrefabInstance: {fileID: 8204767108263278737}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &191840520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191840518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ef216392c8f33409f2efcd91f4e510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &195553424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,6 +531,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520203987}
   m_CullTransparentMesh: 1
+--- !u!1 &527013396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1314956764262545219, guid: 3a896632310e02b468121bf09411f87e, type: 3}
+  m_PrefabInstance: {fileID: 3924901602849055293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &527013401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527013396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd51d97cd02a30c46a87b8f90059abab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _health: 0
 --- !u!1001 &529879792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2549,6 +2551,10 @@ PrefabInstance:
     - target: {fileID: 2132953286740742962, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: reloadAction.m_Name
       value: Reload
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428686084875064986, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_Name
+      value: MuzzleFlash
       objectReference: {fileID: 0}
     - target: {fileID: 7060812621224890882, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: fireAction.m_Id

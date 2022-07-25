@@ -7,11 +7,14 @@ using UnityEngine.InputSystem;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] Camera _FpCamera;
+    [SerializeField] ParticleSystem _MuzzleFlash;
     [SerializeField] float _range = 100f;
+    [SerializeField] float _weaponDamage = 25f;
 
     private void Awake()
     {
         _FpCamera = FindObjectOfType<Camera>();
+        _MuzzleFlash = GetComponentInChildren<ParticleSystem>();
     }
 
     public void OnFire()
@@ -27,8 +30,30 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
-        Physics.Raycast(_FpCamera.transform.position, _FpCamera.transform.forward, out RaycastHit hit, _range);
+        Animation();
+        ProcessHit();
 
-        print($"{hit.transform.name} was hit!");
+    }
+
+    private void Animation()
+    {
+        _MuzzleFlash.Play();
+    }
+
+    private void ProcessHit()
+    {
+        if (Physics.Raycast(_FpCamera.transform.position, _FpCamera.transform.forward, out RaycastHit hit, _range))
+        {
+            print($"{hit.transform.name} was hit!");
+        }
+        else
+        {
+            return;
+        }
+
+        if (hit.transform.GetComponent<IDamageable>() != null)
+        {
+            hit.transform.GetComponent<IDamageable>().ModifyHealth(-_weaponDamage);
+        }
     }
 }
