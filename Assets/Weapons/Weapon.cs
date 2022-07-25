@@ -6,10 +6,11 @@ using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] Camera _FpCamera;
-    [SerializeField] ParticleSystem _MuzzleFlash;
-    [SerializeField] float _range = 100f;
-    [SerializeField] float _weaponDamage = 25f;
+    [SerializeField] private Camera _FpCamera;
+    [SerializeField] private ParticleSystem _MuzzleFlash;
+    [SerializeField] private GameObject _BulletImpact;
+    [SerializeField] private float _range = 100f;
+    [SerializeField] private float _weaponDamage = 25f;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class Weapon : MonoBehaviour
         if (Physics.Raycast(_FpCamera.transform.position, _FpCamera.transform.forward, out RaycastHit hit, _range))
         {
             print($"{hit.transform.name} was hit!");
+            ImpactAnimation(hit);
         }
         else
         {
@@ -55,5 +57,11 @@ public class Weapon : MonoBehaviour
         {
             hit.transform.GetComponent<IDamageable>().ModifyHealth(-_weaponDamage);
         }
+    }
+
+    private void ImpactAnimation(RaycastHit hit)
+    {
+        GameObject impactEffect = Instantiate(_BulletImpact, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impactEffect, 1);
     }
 }
