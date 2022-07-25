@@ -12,9 +12,11 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool isProvoked = false;
 
     private NavMeshAgent navMeshAgent;
+    private Animator _animator;
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -39,24 +41,32 @@ public class EnemyAI : MonoBehaviour
         {
             AttackTarget();
         }
-        else
+        else if(isProvoked)
         {
             FollowTarget();
+        }
+        else
+        {
+            Idle();
         }
     }
 
     private void FollowTarget()
     {
+        _animator.SetTrigger("Move");
+        _animator.SetBool("Attack", false);
         navMeshAgent.SetDestination(target.position);
     }
 
     private void AttackTarget()
     {
+        _animator.SetBool("Attack", true);
         print("Die Human!");
     }
 
     private void Idle()
     {
+        _animator.SetTrigger("Idle");
     }
 
     private void SetStopDistance(float stopDistance)
