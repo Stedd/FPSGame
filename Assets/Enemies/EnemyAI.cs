@@ -13,6 +13,17 @@ public class EnemyAI : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
     private Animator _animator;
+
+    public bool IsProvoked
+    {
+        get => isProvoked;
+        set => isProvoked = value;
+    }
+    private void Awake()
+    {
+        target = FindObjectOfType<PlayerHealth>().transform;
+    }
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -41,7 +52,7 @@ public class EnemyAI : MonoBehaviour
         {
             AttackTarget();
         }
-        else if(isProvoked)
+        else if (isProvoked)
         {
             FollowTarget();
         }
@@ -61,7 +72,7 @@ public class EnemyAI : MonoBehaviour
     private void AttackTarget()
     {
         _animator.SetBool("Attack", true);
-        print("Die Human!");
+        //print("Die Human!");
     }
 
     private void Idle()

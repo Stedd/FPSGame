@@ -20,7 +20,6 @@ public class Weapon : MonoBehaviour
 
     public void OnFire()
     {
-        print($"{gameObject.name} goes: Boom!");
         Shoot();
     }
 
@@ -45,7 +44,7 @@ public class Weapon : MonoBehaviour
     {
         if (Physics.Raycast(_FpCamera.transform.position, _FpCamera.transform.forward, out RaycastHit hit, _range))
         {
-            print($"{hit.transform.name} was hit!");
+            //print($"{hit.transform.name} was hit!");
             ImpactAnimation(hit);
         }
         else
@@ -56,6 +55,11 @@ public class Weapon : MonoBehaviour
         if (hit.transform.GetComponent<IDamageable>() != null)
         {
             hit.transform.GetComponent<IDamageable>().ModifyHealth(-_weaponDamage);
+        }
+
+        if(hit.transform.GetComponent<EnemyAI>()!= null)
+        {
+            hit.transform.GetComponent<EnemyAI>().IsProvoked = true;
         }
     }
 
