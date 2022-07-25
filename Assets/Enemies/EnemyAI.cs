@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,11 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] Transform target;
-    [SerializeField] float chaseRange = 5f;
-    
-    private NavMeshAgent navMeshAgent;
+    [SerializeField] float detectRange = 15f;
+    [SerializeField] float attackRange = 5f;
+    [SerializeField] private bool isProvoked = false;
 
+    private NavMeshAgent navMeshAgent;
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -17,10 +19,49 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (DistanceToTarget(target.position) < chaseRange)
+        SetStopDistance(attackRange * 0.9f);
+
+        if (DistanceToTarget(target.position) < detectRange)
         {
-            navMeshAgent.SetDestination(target.position);
+            isProvoked = true;
         }
+
+        if (isProvoked)
+        {
+            EngageTarget();
+        }
+
+    }
+
+    private void EngageTarget()
+    {
+        if (DistanceToTarget(target.position) <= attackRange)
+        {
+            AttackTarget();
+        }
+        else
+        {
+            FollowTarget();
+        }
+    }
+
+    private void FollowTarget()
+    {
+        navMeshAgent.SetDestination(target.position);
+    }
+
+    private void AttackTarget()
+    {
+        print("Die Human!");
+    }
+
+    private void Idle()
+    {
+    }
+
+    private void SetStopDistance(float stopDistance)
+    {
+        navMeshAgent.stoppingDistance = stopDistance;
     }
 
     private float DistanceToTarget(Vector3 targetPosition)
@@ -31,7 +72,9 @@ public class EnemyAI : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, chaseRange);
+        Gizmos.DrawWireSphere(transform.position, detectRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, navMeshAgent.stoppingDistance);
     }
 
 }
