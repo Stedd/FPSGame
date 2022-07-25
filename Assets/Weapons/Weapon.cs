@@ -6,21 +6,29 @@ using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] Camera _FpCamera;
+    [SerializeField] float _range = 100f;
 
     private void Awake()
     {
-
-        //fireAction.performed += OnFire;
-        //reloadAction.performed += OnReload;
+        _FpCamera = FindObjectOfType<Camera>();
     }
 
-    private void OnFire()
+    public void OnFire()
     {
-        print("Boom!");
+        print($"{gameObject.name} goes: Boom!");
+        Shoot();
     }
 
-    private void OnReload()
+    public void OnReload()
     {
-        print("Reload!");
+        print($"Reloading {gameObject.name}");
+    }
+
+    private void Shoot()
+    {
+        Physics.Raycast(_FpCamera.transform.position, _FpCamera.transform.forward, out RaycastHit hit, _range);
+
+        print($"{hit.transform.name} was hit!");
     }
 }

@@ -258,6 +258,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5d2e4237b4429b34fae4c9eb3cd9efd5, type: 3}
   m_PrefabInstance: {fileID: 101430667}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &191840518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6326861089322885425, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+  m_PrefabInstance: {fileID: 8204767108263278737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &191840520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191840518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ef216392c8f33409f2efcd91f4e510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &195553424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2517,54 +2534,6 @@ PrefabInstance:
       propertyPath: reloadAction.m_Name
       value: Reload
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: fireAction.m_Id
-      value: 1ed57d50-dc55-4571-aecd-b32a46cca345
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: fireAction.m_Name
-      value: Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: reloadAction.m_Id
-      value: b2fa540f-5a3f-4fb7-b40b-672ea6bc4308
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: reloadAction.m_Name
-      value: Reload
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: reloadAction.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Id
-      value: 9820ce96-b93a-4117-a273-5fff0a8424d5
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Mouse>/leftButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: reloadAction.m_SingletonActionBindings.Array.data[0].m_Id
-      value: 58f8c3e7-8210-4dc2-8eae-d4494d6fdbcc
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: fireAction.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: reloadAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Keyboard>/#(R)
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: reloadAction.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Reload
-      objectReference: {fileID: 0}
     - target: {fileID: 2132953286740742962, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: fireAction.m_Id
       value: 95062357-7b41-46da-81a2-d1977a9c523b
@@ -2600,6 +2569,10 @@ PrefabInstance:
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616685848737228376, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_RootOrder
@@ -2646,7 +2619,5 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 7060812621224890882, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-    - {fileID: 335461055095249328, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-    - {fileID: 2132953286740742962, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+    - {fileID: 9083568455291165773, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
