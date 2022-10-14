@@ -75,6 +75,7 @@ public class EnemyAI : MonoBehaviour
     private void AttackTarget()
     {
         _animator.SetBool(AttackAnimation, true);
+        FaceTarget();
         //print("Die Human!");
     }
 
@@ -91,6 +92,13 @@ public class EnemyAI : MonoBehaviour
     private float DistanceToTarget(Vector3 targetPosition)
     {
         return Vector3.Distance(gameObject.transform.position, targetPosition);
+    }
+
+    private void FaceTarget()
+    {
+        Vector3 direction = (_target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
     }
 
     void OnDrawGizmosSelected()
