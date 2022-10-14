@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] float _maxHealth;
-    [SerializeField] float _health;
+    [SerializeField] private float _maxHealth;
+    [SerializeField] private float _health;
 
     private void Awake()
     {
@@ -35,9 +33,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         return _maxHealth;
     }
 
-    public void ModifyHealth(float _healthChange)
+    public void ModifyHealth(float healthChange)
     {
-        _health += _healthChange;
+        _health += healthChange;
     }
 
     public void SetHealth(float newHealth)
@@ -49,6 +47,4 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         _maxHealth = newHealth;
     }
-
-
 }

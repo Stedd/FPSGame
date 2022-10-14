@@ -1,21 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private Camera _FpCamera;
-    [SerializeField] private ParticleSystem _MuzzleFlash;
-    [SerializeField] private GameObject _BulletImpact;
+    [SerializeField] private Camera _fpCamera;
+    [SerializeField] private ParticleSystem _muzzleFlash;
+    [SerializeField] private GameObject _bulletImpact;
     [SerializeField] private float _range = 100f;
     [SerializeField] private float _weaponDamage = 25f;
 
     private void Awake()
     {
-        _FpCamera = FindObjectOfType<Camera>();
-        _MuzzleFlash = GetComponentInChildren<ParticleSystem>();
+        _fpCamera = FindObjectOfType<Camera>();
+        _muzzleFlash = GetComponentInChildren<ParticleSystem>();
     }
 
     public void OnFire()
@@ -32,17 +28,16 @@ public class Weapon : MonoBehaviour
     {
         Animation();
         ProcessHit();
-
     }
 
     private void Animation()
     {
-        _MuzzleFlash.Play();
+        _muzzleFlash.Play();
     }
 
     private void ProcessHit()
     {
-        if (Physics.Raycast(_FpCamera.transform.position, _FpCamera.transform.forward, out RaycastHit hit, _range))
+        if (Physics.Raycast(_fpCamera.transform.position, _fpCamera.transform.forward, out RaycastHit hit, _range))
         {
             //print($"{hit.transform.name} was hit!");
             ImpactAnimation(hit);
@@ -57,7 +52,7 @@ public class Weapon : MonoBehaviour
             hit.transform.GetComponent<IDamageable>().ModifyHealth(-_weaponDamage);
         }
 
-        if(hit.transform.GetComponent<EnemyAI>()!= null)
+        if (hit.transform.GetComponent<EnemyAI>() != null)
         {
             hit.transform.GetComponent<EnemyAI>().IsProvoked = true;
         }
@@ -65,7 +60,7 @@ public class Weapon : MonoBehaviour
 
     private void ImpactAnimation(RaycastHit hit)
     {
-        GameObject impactEffect = Instantiate(_BulletImpact, hit.point, Quaternion.LookRotation(hit.normal));
+        GameObject impactEffect = Instantiate(_bulletImpact, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(impactEffect, 1);
     }
 }

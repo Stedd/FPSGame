@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] float _maxHealth = 100f;
-    [SerializeField] float _health ;
+    [Header("Config")]
+    [SerializeField] private float _maxHealth = 100f;
+    [Header("State")]
+    [SerializeField] private float _health;
 
     private void OnEnable()
     {
@@ -15,16 +14,14 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (_health <= 0)
-        {
-            print("Ded");
-            Destroy(gameObject);
-        }
+        if (!(_health <= 0)) return;
+        print("Ded");
+        Destroy(gameObject);
     }
 
-    public void ModifyHealth(float _healthChange)
+    public void ModifyHealth(float healthChange)
     {
-        _health += _healthChange;
+        _health += healthChange;
     }
 
     public void SetHealth(float newHealth)
@@ -51,5 +48,4 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         return _health / _maxHealth;
     }
-
 }

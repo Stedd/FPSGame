@@ -63,10 +63,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9288de7ba2b80ce43be15a0ff0aa307a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  detectRange: 15
-  attackRange: 1.5
-  isProvoked: 0
+  _detectRange: 15
+  _attackRange: 5
+  _rotationSpeed: 0.9
+  _target: {fileID: 0}
+  _isProvoked: 0
 --- !u!195 &3924901601269037083
 NavMeshAgent:
   m_ObjectHideFlags: 0

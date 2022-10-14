@@ -1,58 +1,61 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] Transform target;
-    [SerializeField] float detectRange = 15f;
-    [SerializeField] float attackRange = 5f;
-    [SerializeField] private bool isProvoked = false;
+    [Header("Configuration")]
+    [SerializeField] private float _detectRange = 15f;
+    [SerializeField] private float _attackRange = 5f;
+    [SerializeField] private float _rotationSpeed = 0.1f;
+    [Header("State")]
+    [SerializeField] private Transform _target;
+    [SerializeField] private bool _isProvoked;
 
-    private NavMeshAgent navMeshAgent;
+    private NavMeshAgent _navMeshAgent;
     private Animator _animator;
+    private static readonly int MoveAnimation = Animator.StringToHash("Move");
+    private static readonly int AttackAnimation = Animator.StringToHash("Attack");
+    private static readonly int IdleAnimation = Animator.StringToHash("Idle");
 
     public bool IsProvoked
     {
-        get => isProvoked;
-        set => isProvoked = value;
-    }
-    private void Awake()
-    {
-        target = FindObjectOfType<PlayerHealth>().transform;
+        get => _isProvoked;
+        set => _isProvoked = value;
     }
 
-    void Start()
+    private void Awake()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        _target = FindObjectOfType<PlayerHealth>().transform;
+    }
+
+    private void Start()
+    {
+        _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
-        SetStopDistance(attackRange * 0.9f);
+        SetStopDistance(_attackRange * 0.9f);
 
-        if (DistanceToTarget(target.position) < detectRange)
+        if (DistanceToTarget(_target.position) < _detectRange)
         {
-            isProvoked = true;
+            _isProvoked = true;
         }
 
-        if (isProvoked)
+        if (_isProvoked)
         {
             EngageTarget();
         }
-
     }
 
     private void EngageTarget()
     {
-        if (DistanceToTarget(target.position) <= attackRange)
+        if (DistanceToTarget(_target.position) <= _attackRange)
         {
             AttackTarget();
         }
-        else if (isProvoked)
+        else if (_isProvoked)
         {
             FollowTarget();
         }
@@ -64,25 +67,25 @@ public class EnemyAI : MonoBehaviour
 
     private void FollowTarget()
     {
-        _animator.SetTrigger("Move");
-        _animator.SetBool("Attack", false);
-        navMeshAgent.SetDestination(target.position);
+        _animator.SetTrigger(MoveAnimation);
+        _animator.SetBool(AttackAnimation, false);
+        _navMeshAgent.SetDestination(_target.position);
     }
 
     private void AttackTarget()
     {
-        _animator.SetBool("Attack", true);
+        _animator.SetBool(AttackAnimation, true);
         //print("Die Human!");
     }
 
     private void Idle()
     {
-        _animator.SetTrigger("Idle");
+        _animator.SetTrigger(IdleAnimation);
     }
 
     private void SetStopDistance(float stopDistance)
     {
-        navMeshAgent.stoppingDistance = stopDistance;
+        _navMeshAgent.stoppingDistance = stopDistance;
     }
 
     private float DistanceToTarget(Vector3 targetPosition)
@@ -93,12 +96,11 @@ public class EnemyAI : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectRange);
-        if (navMeshAgent != null)
+        Gizmos.DrawWireSphere(transform.position, _detectRange);
+        if (_navMeshAgent != null)
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, navMeshAgent.stoppingDistance);
+            Gizmos.DrawWireSphere(transform.position, _navMeshAgent.stoppingDistance);
         }
     }
-
 }

@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 interface IDamageable
 {
-    public void ModifyHealth(float _healthChange);
+    public void ModifyHealth(float healthChange);
 
     public void SetHealth(float newHealth);
 
