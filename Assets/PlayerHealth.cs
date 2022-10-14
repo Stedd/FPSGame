@@ -2,20 +2,13 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
+    [SerializeField] private DeathHandler _deathHandler;
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _health;
 
     private void Awake()
     {
         SetHealth(_maxHealth);
-    }
-
-    private void Update()
-    {
-        if (_health <= 0)
-        {
-            Debug.Log($"{transform.name} Died");
-        }
     }
 
     public float GetHealth()
@@ -33,9 +26,17 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         return _maxHealth;
     }
 
+    public bool IsProvoked { get; set; }
+
     public void ModifyHealth(float healthChange)
     {
         _health += healthChange;
+        
+        if (_health <= 0)
+        {
+            _health = 0;
+            _deathHandler.HandleDeath();
+        }
     }
 
     public void SetHealth(float newHealth)

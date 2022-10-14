@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IAggroable
 {
     [Header("Configuration")]
     [SerializeField] private float _detectRange = 15f;

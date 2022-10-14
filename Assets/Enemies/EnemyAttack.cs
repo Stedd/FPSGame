@@ -14,7 +14,7 @@ public class EnemyAttack : MonoBehaviour
     private void AttackHitEvent()
     {
         if (_target == null) return;
-        if (_target.GetComponent<IDamageable>() != null) return;
+        if (_target.GetComponent<IDamageable>() == null) return;
         Debug.Log($"{transform.name} Hits {_target.transform.name}");
         _target.GetComponent<IDamageable>().ModifyHealth(-_damage);
     }

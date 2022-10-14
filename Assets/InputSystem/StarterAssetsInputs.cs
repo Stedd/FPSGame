@@ -30,7 +30,14 @@ namespace StarterAssets
         {
             if (_cursorInputForLook)
             {
-                LookInput(value.Get<Vector2>());
+                if (Time.timeScale > 0)
+                {
+                    LookInput(value.Get<Vector2>());
+                }
+                else
+                {
+                    LookInput(Vector2.zero);
+                }
             }
         }
 

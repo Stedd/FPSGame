@@ -197,6 +197,8 @@ GameObject:
   - component: {fileID: 1978471637655604388}
   - component: {fileID: 5420857361349278248}
   - component: {fileID: 8616685848737228376}
+  - component: {fileID: 8294200720936265358}
+  - component: {fileID: 8729095170121787993}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -251,9 +253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 4
-  SprintSpeed: 6
-  RotationSpeed: 1
+  MoveSpeed: 3.5
+  SprintSpeed: 8
+  RotationSpeed: 1.5
   SpeedChangeRate: 10
   JumpHeight: 1.2
   Gravity: -15
@@ -297,13 +299,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {x: 0, y: 0}
-  look: {x: 0, y: 0}
-  jump: 0
-  sprint: 0
-  analogMovement: 0
-  cursorLocked: 0
-  cursorInputForLook: 1
+  _move: {x: 0, y: 0}
+  _look: {x: 0, y: 0}
+  _jump: 0
+  _sprint: 0
+  _analogMovement: 0
+  _cursorLocked: 1
+  _cursorInputForLook: 1
 --- !u!114 &8616685848737228376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +404,34 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8294200720936265358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9b54b89b900ca46acb801d273ce670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameOverCanvas: {fileID: 0}
+--- !u!114 &8729095170121787993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616685848737228372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8f816ece356744ab73c6998c96717b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathHandler: {fileID: 8294200720936265358}
+  _maxHealth: 100
+  _health: 0
 --- !u!1001 &1216783236557002590
 PrefabInstance:
   m_ObjectHideFlags: 0

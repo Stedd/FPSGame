@@ -52,9 +52,9 @@ public class Weapon : MonoBehaviour
             hit.transform.GetComponent<IDamageable>().ModifyHealth(-_weaponDamage);
         }
 
-        if (hit.transform.GetComponent<EnemyAI>() != null)
+        if (hit.transform.GetComponent<IAggroable>() != null)
         {
-            hit.transform.GetComponent<EnemyAI>().IsProvoked = true;
+            hit.transform.GetComponent<IAggroable>().IsProvoked = true;
         }
     }
 

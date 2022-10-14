@@ -12,16 +12,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         _health = _maxHealth;
     }
 
-    private void Update()
-    {
-        if (!(_health <= 0)) return;
-        print("Ded");
-        Destroy(gameObject);
-    }
-
     public void ModifyHealth(float healthChange)
     {
         _health += healthChange;
+        if (!(_health <= 0)) return;
+        print("Ded");
+        Destroy(gameObject);
     }
 
     public void SetHealth(float newHealth)
