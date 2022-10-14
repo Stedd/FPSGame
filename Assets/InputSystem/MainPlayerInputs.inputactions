@@ -1,5 +1,5 @@
 {
-    "name": "StarterAssets",
+    "name": "MainPlayerInputs",
     "maps": [
         {
             "name": "Player",
@@ -54,6 +54,15 @@
                     "name": "Reload",
                     "type": "Button",
                     "id": "f9e290fe-dd8f-4902-805b-164956f70282",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "4a5c59b4-fdfb-4dfb-bfc1-1bd6c4a121c5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -300,6 +309,85 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d98121e-31da-4f67-8ba8-29af21310b0e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "baa56f6d-d4c0-4362-9dfd-8c705d923a27",
+            "actions": [
+                {
+                    "name": "Point",
+                    "type": "Value",
+                    "id": "d69fb5b5-7d08-4dbc-aeff-8ddc6d53b1e6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftClick",
+                    "type": "Button",
+                    "id": "4abf5888-18af-42f1-8413-e41292e4263a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightClick",
+                    "type": "Button",
+                    "id": "f3efb458-0934-4a2e-9b28-ca1f96bfb964",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "07dfed60-4a97-4d73-8f98-6824430eacd7",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "242e9c4e-9e5b-4e10-8b8d-f54a91c731d8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d18148c-458c-4452-a4bf-f81fec56bcfb",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

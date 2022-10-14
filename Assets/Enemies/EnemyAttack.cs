@@ -18,4 +18,4 @@ public class EnemyAttack : MonoBehaviour
         Debug.Log($"{transform.name} Hits {_target.transform.name}");
         _target.GetComponent<IDamageable>().ModifyHealth(-_damage);
     }
-
+}
