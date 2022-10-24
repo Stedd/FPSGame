@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 453068}
   - component: {fileID: 5719313868755367213}
   - component: {fileID: 5655468185604888337}
+  - component: {fileID: 1366121443174139284}
   - component: {fileID: 3316574}
   - component: {fileID: 2346984}
   m_Layer: 0
@@ -48,11 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _range: 100
-  _weaponDamage: 25
+  _weaponDamage: 4
+  _timeBetweenShots: 0.1
   _fpCamera: {fileID: 0}
   _muzzleFlash: {fileID: 0}
-  _bulletImpact: {fileID: 0}
-  _ammo: {fileID: 0}
+  _bulletImpact: {fileID: 252487699782519274, guid: 82851982cb47c134a8403ffcb052b9d2, type: 3}
+  _ammo: {fileID: 5655468185604888337}
 --- !u!114 &5655468185604888337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,13 +67,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c35481a551c3a4d9d5f0e3fe13a03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ammoType: 0
-  _maxBeltAmmoAmount: 0
-  _maxMagAmmoAmount: 0
+  _ammoType: 2
+  _maxBeltAmmoAmount: 300
+  _maxMagAmmoAmount: 45
   _currentBeltAmmoAmount: 0
   _currentMagAmmoAmount: 0
   _S_currentBeltAmmoAmount: {fileID: 11400000, guid: f19d1fc1d5102a545800f4f8273640b1, type: 2}
   _S_currentMagAmmoAmount: {fileID: 11400000, guid: 9a77ec14c64717643bed1c6e7a3885ae, type: 2}
+--- !u!114 &1366121443174139284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b8a4e9bfb741aa96889e5df5a06cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fovNormal: 0
+  _senseNormal: 0
+  _fovZoom: 0
+  _senseZoom: 0
+  _input: {fileID: 0}
+  _camera: {fileID: 0}
+  _zoomedIn: 0
 --- !u!33 &3316574
 MeshFilter:
   m_ObjectHideFlags: 0

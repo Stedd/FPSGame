@@ -41,6 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4838220252604734}
   - component: {fileID: 971410133006304364}
+  - component: {fileID: 1537282594975695390}
+  - component: {fileID: 7047714336720636310}
   m_Layer: 0
   m_Name: Crossbow
   m_TagString: Untagged
@@ -77,6 +79,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ef216392c8f33409f2efcd91f4e510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _range: 100
+  _weaponDamage: 100
+  _timeBetweenShots: 2
+  _fpCamera: {fileID: 0}
+  _muzzleFlash: {fileID: 0}
+  _bulletImpact: {fileID: 252487699782519274, guid: 82851982cb47c134a8403ffcb052b9d2, type: 3}
+  _ammo: {fileID: 1537282594975695390}
+--- !u!114 &1537282594975695390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519058888169846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c35481a551c3a4d9d5f0e3fe13a03d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ammoType: 1
+  _maxBeltAmmoAmount: 10
+  _maxMagAmmoAmount: 1
+  _currentBeltAmmoAmount: 0
+  _currentMagAmmoAmount: 0
+  _S_currentBeltAmmoAmount: {fileID: 11400000, guid: f19d1fc1d5102a545800f4f8273640b1, type: 2}
+  _S_currentMagAmmoAmount: {fileID: 11400000, guid: 9a77ec14c64717643bed1c6e7a3885ae, type: 2}
+--- !u!114 &7047714336720636310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519058888169846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b8a4e9bfb741aa96889e5df5a06cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fovNormal: 40
+  _senseNormal: 1
+  _fovZoom: 20
+  _senseZoom: 0.5
+  _input: {fileID: 0}
+  _camera: {fileID: 0}
+  _zoomedIn: 0
 --- !u!1 &1768035638187606
 GameObject:
   m_ObjectHideFlags: 0

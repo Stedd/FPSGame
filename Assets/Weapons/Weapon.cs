@@ -1,10 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
     [Header("Config")]
+    [SerializeField] private int _index;
     [SerializeField] private float _range = 100f;
     [SerializeField] private float _weaponDamage = 25f;
+    [SerializeField] private float _timeBetweenShots;
+    [SerializeField] private float _timeBetweenReloads;
 
     [Header("Connections")]
     [SerializeField] private Camera _fpCamera;
@@ -12,37 +17,65 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject _bulletImpact;
     [SerializeField] private Ammo _ammo;
 
+    [Header("State")]
+    [SerializeField] private bool _canShoot;
+
     private void Awake()
     {
+        _canShoot = true;
         _fpCamera = FindObjectOfType<Camera>();
         _muzzleFlash = GetComponentInChildren<ParticleSystem>();
         _ammo = GetComponent<Ammo>();
     }
 
+    public int Index
+    {
+        get => _index;
+        set => _index = value;
+    }
+
     public void OnFire()
     {
-        Shoot();
+        if (_canShoot)
+        {
+            StartCoroutine(Shoot());
+        }
     }
 
     public void OnReload()
     {
-        print($"Reloading {gameObject.name}");
-        _ammo.Reload();
+        StartCoroutine(Reload());
     }
 
-    private void Shoot()
+    IEnumerator Reload()
     {
+        _canShoot = false;
+        print($"Reloading {gameObject.name}");
+        _ammo.Reload();
+        yield return new WaitForSeconds(_timeBetweenReloads);
+        _canShoot = true;
+    }
+
+    IEnumerator Shoot()
+    {
+        _canShoot = false;
         if (_ammo.CurrentMagAmmoAmount > 0)
         {
             _ammo.ModifyMagAmmo(-1);
             Animation();
             ProcessHit();
         }
+
+        yield return new WaitForSeconds(_timeBetweenShots);
+        _canShoot = true;
     }
 
     private void Animation()
     {
-        _muzzleFlash.Play();
+        if (_muzzleFlash != null)
+        {
+            _muzzleFlash.Play();
+        }
     }
 
     private void ProcessHit()

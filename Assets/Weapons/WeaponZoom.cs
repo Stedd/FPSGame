@@ -20,7 +20,7 @@ public class WeaponZoom : MonoBehaviour
 
     private void OnEnable()
     {
-        _input = GetComponent<StarterAssetsInputs>();
+        _input = GetComponentInParent<StarterAssetsInputs>();
         _camera = FindObjectOfType<CinemachineVirtualCamera>();
         Debug.Assert(_camera != null, nameof(_camera) + " != null");
         _fovNormal = _camera.m_Lens.FieldOfView;
@@ -40,6 +40,5 @@ public class WeaponZoom : MonoBehaviour
             _input.MouseScale = _senseNormal;
             _camera.m_Lens.FieldOfView = _fovNormal;
         }
-
     }
 }
