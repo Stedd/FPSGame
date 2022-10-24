@@ -2,16 +2,21 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [Header("Config")]
+    [SerializeField] private float _range = 100f;
+    [SerializeField] private float _weaponDamage = 25f;
+
+    [Header("Connections")]
     [SerializeField] private Camera _fpCamera;
     [SerializeField] private ParticleSystem _muzzleFlash;
     [SerializeField] private GameObject _bulletImpact;
-    [SerializeField] private float _range = 100f;
-    [SerializeField] private float _weaponDamage = 25f;
+    [SerializeField] private Ammo _ammo;
 
     private void Awake()
     {
         _fpCamera = FindObjectOfType<Camera>();
         _muzzleFlash = GetComponentInChildren<ParticleSystem>();
+        _ammo = GetComponent<Ammo>();
     }
 
     public void OnFire()
@@ -22,12 +27,17 @@ public class Weapon : MonoBehaviour
     public void OnReload()
     {
         print($"Reloading {gameObject.name}");
+        _ammo.Reload();
     }
 
     private void Shoot()
     {
-        Animation();
-        ProcessHit();
+        if (_ammo.CurrentMagAmmoAmount > 0)
+        {
+            _ammo.ModifyMagAmmo(-1);
+            Animation();
+            ProcessHit();
+        }
     }
 
     private void Animation()
