@@ -3683,6 +3683,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
   m_PrefabInstance: {fileID: 6782772648210504087}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1850161070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8762286023885395323, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+  m_PrefabInstance: {fileID: 6782772648210504087}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1859157918 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
@@ -3702,7 +3713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fovNormal: 40
   _fovZoom: 20
-  _camera: {fileID: 1874573760}
+  _camera: {fileID: 1850161070}
   _zoomedIn: 0
 --- !u!20 &1874573760 stripped
 Camera:
@@ -4128,8 +4139,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1423614137}
     - target: {fileID: 8762286023885395323, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8762286023885395323, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.1858407
+      value: 1.7777778
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
