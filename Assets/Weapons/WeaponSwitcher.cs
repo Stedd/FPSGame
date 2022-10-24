@@ -30,18 +30,11 @@ public class WeaponSwitcher : MonoBehaviour
     {
         foreach (Weapon weapon in _weapons)
         {
-            if (weapon.Index == _currentWeapon)
+            weapon.gameObject.SetActive(false);
+            if (weapon.Index == index)
             {
                 weapon.gameObject.SetActive(true);
             }
-        }
-    }
-
-    private void DeselectAllWeapons()
-    {
-        foreach (Weapon weapon in _weapons)
-        {
-            weapon.gameObject.SetActive(false);
         }
     }
 
@@ -49,13 +42,36 @@ public class WeaponSwitcher : MonoBehaviour
     {
         if (Mouse.current.middleButton.wasPressedThisFrame)
         {
-            _currentWeapon += 1;
+            _currentWeapon++;
             if (_currentWeapon > _weapons.Length - 1)
             {
                 _currentWeapon = 0;
             }
 
-            DeselectAllWeapons();
+            SelectWeapon(_currentWeapon);
+        }
+
+        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+        {
+            _currentWeapon = 0;
+            SelectWeapon(_currentWeapon);
+        }
+
+        if (Keyboard.current.digit2Key.wasPressedThisFrame)
+        {
+            _currentWeapon = 1;
+            SelectWeapon(_currentWeapon);
+        }
+
+        if (Keyboard.current.digit3Key.wasPressedThisFrame)
+        {
+            _currentWeapon = 2;
+            SelectWeapon(_currentWeapon);
+        }
+
+        if (Keyboard.current.digit4Key.wasPressedThisFrame)
+        {
+            _currentWeapon = 3;
             SelectWeapon(_currentWeapon);
         }
     }
