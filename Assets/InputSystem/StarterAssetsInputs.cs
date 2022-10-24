@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -14,11 +16,25 @@ namespace StarterAssets
         public bool _sprint;
 
         [Header("Movement Settings")]
+        [SerializeField] private float _mouseScale;
         public bool _analogMovement;
 
         [Header("Mouse Cursor Settings")]
         public bool _cursorLocked = true;
         public bool _cursorInputForLook = true;
+
+        public float MouseScale
+        {
+            get => _mouseScale;
+            set => _mouseScale = value;
+        }
+
+        private void OnEnable()
+        {
+            _mouseScale = 1;
+            _cursorLocked = true;
+            SetCursorState();
+        }
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         public void OnMove(InputValue value)
@@ -32,7 +48,7 @@ namespace StarterAssets
             {
                 if (Time.timeScale > 0)
                 {
-                    LookInput(value.Get<Vector2>());
+                    LookInput(_mouseScale * value.Get<Vector2>());
                 }
                 else
                 {
@@ -57,12 +73,6 @@ namespace StarterAssets
             SetCursorState();
         }
 #endif
-
-        private void OnEnable()
-        {
-            _cursorLocked = true;
-            SetCursorState();
-        }
 
         public void MoveInput(Vector2 newMoveDirection)
         {
