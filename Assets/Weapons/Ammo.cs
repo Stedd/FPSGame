@@ -11,7 +11,6 @@ public class Ammo : MonoBehaviour
 
     [Header("Connections")]
     [SerializeField] private AmmoBelt _ammoBelt;
-    [SerializeField] private FloatVariable _S_currentBeltAmmoAmount;
     [SerializeField] private FloatVariable _S_currentMagAmmoAmount;
 
     private void Awake()
@@ -23,7 +22,9 @@ public class Ammo : MonoBehaviour
 
     private void OnEnable()
     {
-        AmmoUpdate();
+        _ammoBelt.CurrentWeaponAmmoType = _ammoType;
+        UpdateMagazineAmmoUI();
+        _ammoBelt.UpdateBeltAmmoUI(_ammoType);
     }
 
     #region Public Properties
@@ -65,7 +66,7 @@ public class Ammo : MonoBehaviour
             _ammoBelt.SetBeltCurrentAmmoAmount(_ammoType, 0);
         }
 
-        AmmoUpdate();
+        UpdateMagazineAmmoUI();
     }
 
     public void ModifyMagAmmo(int modifyValue)
@@ -81,7 +82,7 @@ public class Ammo : MonoBehaviour
             _currentMagAmmoAmount = 0;
         }
 
-        AmmoUpdate();
+        UpdateMagazineAmmoUI();
     }
 
     #endregion
@@ -100,9 +101,8 @@ public class Ammo : MonoBehaviour
 
     #endregion
 
-    private void AmmoUpdate()
+    private void UpdateMagazineAmmoUI()
     {
-        _S_currentBeltAmmoAmount.Value = _ammoBelt.GetBeltCurrentAmmoAmount(_ammoType);
         _S_currentMagAmmoAmount.Value = _currentMagAmmoAmount;
     }
 }

@@ -67,15 +67,17 @@ MonoBehaviour:
   - <AmmoType>k__BackingField: 0
     <MaxBeltAmmoAmount>k__BackingField: 10
     <CurrentBeltAmmoAmount>k__BackingField: 0
-  - <AmmoType>k__BackingField: 2
+  - <AmmoType>k__BackingField: 1
     <MaxBeltAmmoAmount>k__BackingField: 30
     <CurrentBeltAmmoAmount>k__BackingField: 0
-  - <AmmoType>k__BackingField: 1
+  - <AmmoType>k__BackingField: 2
     <MaxBeltAmmoAmount>k__BackingField: 200
     <CurrentBeltAmmoAmount>k__BackingField: 0
   - <AmmoType>k__BackingField: 3
     <MaxBeltAmmoAmount>k__BackingField: 15
     <CurrentBeltAmmoAmount>k__BackingField: 0
+  _S_currentBeltAmmoAmount: {fileID: 11400000, guid: f19d1fc1d5102a545800f4f8273640b1, type: 2}
+  _currentWeaponAmmoType: 0
 --- !u!1 &4135013735270702863
 GameObject:
   m_ObjectHideFlags: 0
