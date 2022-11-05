@@ -18,7 +18,7 @@ public class WeaponZoom : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera _camera;
     [SerializeField] private bool _zoomedIn;
 
-    private void OnEnable()
+    private void Awake()
     {
         _input = GetComponentInParent<StarterAssetsInputs>();
         _camera = FindObjectOfType<CinemachineVirtualCamera>();
@@ -28,7 +28,8 @@ public class WeaponZoom : MonoBehaviour
 
     private void OnDisable()
     {
-        _camera.m_Lens.FieldOfView = _fovNormal;
+        ZoomOut();
+        _zoomedIn = false;
     }
 
     private void Update()
@@ -37,13 +38,23 @@ public class WeaponZoom : MonoBehaviour
         _zoomedIn = !_zoomedIn;
         if (_zoomedIn)
         {
-            _input.MouseScale = _senseZoom;
-            _camera.m_Lens.FieldOfView = _fovZoom;
+            ZoomIn();
         }
         else
         {
-            _input.MouseScale = _senseNormal;
-            _camera.m_Lens.FieldOfView = _fovNormal;
+            ZoomOut();
         }
+    }
+
+    private void ZoomOut()
+    {
+        _input.MouseScale = _senseNormal;
+        _camera.m_Lens.FieldOfView = _fovNormal;
+    }
+
+    private void ZoomIn()
+    {
+        _input.MouseScale = _senseZoom;
+        _camera.m_Lens.FieldOfView = _fovZoom;
     }
 }
