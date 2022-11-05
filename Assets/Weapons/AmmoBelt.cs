@@ -19,7 +19,7 @@ public class AmmoBelt : MonoBehaviour
 {
     [Serializable] private class AmmoSlot
     {
-        [field: SerializeField] public AmmoType AmmoType { get; }
+        [field: SerializeField] public AmmoType AmmoType { get; set; }
         [field: SerializeField] public int MaxBeltAmmoAmount { get; set; }
         [field: SerializeField] public int CurrentBeltAmmoAmount { get; set; }
     }
