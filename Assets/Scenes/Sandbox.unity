@@ -2119,25 +2119,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925195241}
   m_CullTransparentMesh: 1
---- !u!1 &942203718 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 160269183453626702, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-  m_PrefabInstance: {fileID: 8204767108263278737}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &942203720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 942203718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51cf941944fb27e43863c290683f7068, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weapons: []
-  _currentWeapon: 0
 --- !u!1001 &945433442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4336,7 +4317,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 160269183453626702, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
-      value: Weapon
+      value: Weapons
       objectReference: {fileID: 0}
     - target: {fileID: 335461055095249328, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: _fpCamera
@@ -4355,12 +4336,28 @@ PrefabInstance:
       value: e5dd7aae-807b-46fc-8c1a-a6e621305625
       objectReference: {fileID: 0}
     - target: {fileID: 335461055095249328, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-      propertyPath: _timeBetweenReloads
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 335461055095249328, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: reloadAction.m_Name
       value: Reload
+      objectReference: {fileID: 0}
+    - target: {fileID: 411911725668603200, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: _ammoSlot.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411911725668603200, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: _ammoSlot.Array.data[0].AmmoType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 411911725668603200, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: _ammoSlot.Array.data[1].AmmoType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 411911725668603200, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: _ammoSlot.Array.data[2].AmmoType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 411911725668603200, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: _ammoSlot.Array.data[3].AmmoType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1218087889432038952, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_IsActive
@@ -4383,10 +4380,6 @@ PrefabInstance:
       value: b6e2ceaf-6126-4eb9-8b2e-91b3dc0253b4
       objectReference: {fileID: 0}
     - target: {fileID: 2132953286740742962, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-      propertyPath: _timeBetweenReloads
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2132953286740742962, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: reloadAction.m_Name
       value: Reload
       objectReference: {fileID: 0}
@@ -4398,6 +4391,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4348065138891612859, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: _input
+      value: 
+      objectReference: {fileID: 1859157935}
+    - target: {fileID: 4348065138891612859, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 1850161070}
     - target: {fileID: 4641286401744272850, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: _fpCamera
       value: 
@@ -4406,10 +4407,6 @@ PrefabInstance:
       propertyPath: _BulletImpact
       value: 
       objectReference: {fileID: 252487699782519274, guid: 82851982cb47c134a8403ffcb052b9d2, type: 3}
-    - target: {fileID: 4641286401744272850, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-      propertyPath: _timeBetweenReloads
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5428686084875064986, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
       value: MuzzleFlash
@@ -4433,10 +4430,6 @@ PrefabInstance:
     - target: {fileID: 7060812621224890882, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: reloadAction.m_Id
       value: 9a13135e-9c14-4a7a-a277-378fc4a31eae
-      objectReference: {fileID: 0}
-    - target: {fileID: 7060812621224890882, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
-      propertyPath: _timeBetweenReloads
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7060812621224890882, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: reloadAction.m_Name
@@ -4534,6 +4527,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9083568455291165773, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}

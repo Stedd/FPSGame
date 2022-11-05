@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [Header("Config")]
-    [SerializeField] private int _index;
+    [SerializeField] private AmmoType _ammoType;
     [SerializeField] private float _range = 100f;
     [SerializeField] private float _weaponDamage = 25f;
     [SerializeField] private float _timeBetweenShots;
@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Ammo _ammo;
 
     [Header("State")]
+    [SerializeField] private int _index;
     [SerializeField] private bool _canShoot;
 
     private void Awake()

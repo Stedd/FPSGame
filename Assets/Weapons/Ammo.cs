@@ -1,26 +1,23 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
     [Header("Config")]
-    [SerializeField] private int _ammoType;
-    [SerializeField] private int _maxBeltAmmoAmount;
+    [SerializeField] private AmmoType _ammoType;
     [SerializeField] private int _maxMagAmmoAmount;
 
     [Header("State")]
-    [SerializeField] private int _currentBeltAmmoAmount;
     [SerializeField] private int _currentMagAmmoAmount;
 
     [Header("Connections")]
+    [SerializeField] private AmmoBelt _ammoBelt;
     [SerializeField] private FloatVariable _S_currentBeltAmmoAmount;
     [SerializeField] private FloatVariable _S_currentMagAmmoAmount;
 
     private void Awake()
     {
-        _currentBeltAmmoAmount = _maxBeltAmmoAmount;
+        _ammoBelt = GetComponentInParent<AmmoBelt>();
+
         _currentMagAmmoAmount = _maxMagAmmoAmount;
     }
 
@@ -31,7 +28,7 @@ public class Ammo : MonoBehaviour
 
     #region Public Properties
 
-    public int AmmoType
+    public AmmoType AmmoType
     {
         get => _ammoType;
         set => _ammoType = value;
@@ -57,15 +54,15 @@ public class Ammo : MonoBehaviour
     {
         int diff = _maxMagAmmoAmount - _currentMagAmmoAmount;
         print(diff);
-        if (diff < _currentBeltAmmoAmount)
+        if (diff < _ammoBelt.GetBeltCurrentAmmoAmount(_ammoType))
         {
-            _currentBeltAmmoAmount -= diff;
+            _ammoBelt.ModifyBeltCurrentAmmoAmount(_ammoType, -diff);
             _currentMagAmmoAmount += diff;
         }
         else
         {
-            _currentMagAmmoAmount += _currentBeltAmmoAmount;
-            _currentBeltAmmoAmount = 0;
+            _currentMagAmmoAmount += _ammoBelt.GetBeltCurrentAmmoAmount(_ammoType);
+            _ammoBelt.SetBeltCurrentAmmoAmount(_ammoType, 0);
         }
 
         AmmoUpdate();
@@ -98,14 +95,14 @@ public class Ammo : MonoBehaviour
 
     public float GetBeltAmmoFactor()
     {
-        return _currentBeltAmmoAmount / (float)_maxBeltAmmoAmount;
+        return _ammoBelt.GetBeltCurrentAmmoAmount(_ammoType) / (float)_ammoBelt.GetBeltMaxAmmoAmount(_ammoType);
     }
 
     #endregion
 
     private void AmmoUpdate()
     {
-        _S_currentBeltAmmoAmount.Value = _currentBeltAmmoAmount;
+        _S_currentBeltAmmoAmount.Value = _ammoBelt.GetBeltCurrentAmmoAmount(_ammoType);
         _S_currentMagAmmoAmount.Value = _currentMagAmmoAmount;
     }
 }

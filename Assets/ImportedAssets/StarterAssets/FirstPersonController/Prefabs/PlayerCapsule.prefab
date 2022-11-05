@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2265701993784981172}
   - component: {fileID: 7253208606534141378}
+  - component: {fileID: 8838302087844949975}
   m_Layer: 8
   m_Name: Weapons
   m_TagString: Untagged
@@ -50,6 +51,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapons: []
   _currentWeapon: 0
+--- !u!114 &8838302087844949975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160269183453626702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbcfad096f7809942bd5a514e82d5678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ammoSlots:
+  - <AmmoType>k__BackingField: 0
+    <MaxBeltAmmoAmount>k__BackingField: 10
+    <CurrentBeltAmmoAmount>k__BackingField: 0
+  - <AmmoType>k__BackingField: 2
+    <MaxBeltAmmoAmount>k__BackingField: 30
+    <CurrentBeltAmmoAmount>k__BackingField: 0
+  - <AmmoType>k__BackingField: 1
+    <MaxBeltAmmoAmount>k__BackingField: 200
+    <CurrentBeltAmmoAmount>k__BackingField: 0
+  - <AmmoType>k__BackingField: 3
+    <MaxBeltAmmoAmount>k__BackingField: 15
+    <CurrentBeltAmmoAmount>k__BackingField: 0
 --- !u!1 &4135013735270702863
 GameObject:
   m_ObjectHideFlags: 0
