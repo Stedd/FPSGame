@@ -18,10 +18,15 @@ public class Ammo : MonoBehaviour
     [SerializeField] private FloatVariable _S_currentBeltAmmoAmount;
     [SerializeField] private FloatVariable _S_currentMagAmmoAmount;
 
-    private void OnEnable()
+    private void Awake()
     {
         _currentBeltAmmoAmount = _maxBeltAmmoAmount;
         _currentMagAmmoAmount = _maxMagAmmoAmount;
+    }
+
+    private void OnEnable()
+    {
+        AmmoUpdate();
     }
 
     #region Public Properties

@@ -40,38 +40,55 @@ public class WeaponSwitcher : MonoBehaviour
 
     private void Update()
     {
+        int lastWeapon = _currentWeapon;
+
+        switch (Mouse.current.scroll.ReadValue().y)
+        {
+            case > 0:
+                _currentWeapon++;
+                break;
+            case < 0:
+                _currentWeapon--;
+                break;
+        }
+
         if (Mouse.current.middleButton.wasPressedThisFrame)
         {
             _currentWeapon++;
-            if (_currentWeapon > _weapons.Length - 1)
-            {
-                _currentWeapon = 0;
-            }
-
-            SelectWeapon(_currentWeapon);
         }
 
         if (Keyboard.current.digit1Key.wasPressedThisFrame)
         {
             _currentWeapon = 0;
-            SelectWeapon(_currentWeapon);
         }
 
         if (Keyboard.current.digit2Key.wasPressedThisFrame)
         {
             _currentWeapon = 1;
-            SelectWeapon(_currentWeapon);
         }
 
         if (Keyboard.current.digit3Key.wasPressedThisFrame)
         {
             _currentWeapon = 2;
-            SelectWeapon(_currentWeapon);
         }
 
         if (Keyboard.current.digit4Key.wasPressedThisFrame)
         {
             _currentWeapon = 3;
+        }
+
+        if (_currentWeapon > _weapons.Length - 1)
+        {
+            _currentWeapon = 0;
+        }
+
+        if (_currentWeapon < 0)
+        {
+            _currentWeapon = _weapons.Length - 1;
+        }
+
+        if (lastWeapon != _currentWeapon)
+        {
             SelectWeapon(_currentWeapon);
         }
     }

@@ -47,7 +47,7 @@ public class Weapon : MonoBehaviour
         StartCoroutine(Reload());
     }
 
-    IEnumerator Reload()
+    private IEnumerator Reload()
     {
         _canShoot = false;
         print($"Reloading {gameObject.name}");
@@ -56,7 +56,7 @@ public class Weapon : MonoBehaviour
         _canShoot = true;
     }
 
-    IEnumerator Shoot()
+    private IEnumerator Shoot()
     {
         _canShoot = false;
         if (_ammo.CurrentMagAmmoAmount > 0)

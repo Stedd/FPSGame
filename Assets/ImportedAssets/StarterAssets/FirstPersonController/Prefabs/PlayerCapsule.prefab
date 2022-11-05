@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2265701993784981172}
-  - component: {fileID: 9083568455291165773}
+  - component: {fileID: 7253208606534141378}
   m_Layer: 8
   m_Name: Weapons
   m_TagString: Untagged
@@ -36,7 +36,7 @@ Transform:
   m_Father: {fileID: 4135013735270702856}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9083568455291165773
+--- !u!114 &7253208606534141378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,14 +45,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 160269183453626702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ef216392c8f33409f2efcd91f4e510, type: 3}
+  m_Script: {fileID: 11500000, guid: 51cf941944fb27e43863c290683f7068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fpCamera: {fileID: 0}
-  _muzzleFlash: {fileID: 0}
-  _bulletImpact: {fileID: 0}
-  _range: 100
-  _weaponDamage: 25
+  _weapons: []
+  _currentWeapon: 0
 --- !u!1 &4135013735270702863
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +300,7 @@ MonoBehaviour:
   _look: {x: 0, y: 0}
   _jump: 0
   _sprint: 0
+  _mouseScale: 0
   _analogMovement: 0
   _cursorLocked: 1
   _cursorInputForLook: 1

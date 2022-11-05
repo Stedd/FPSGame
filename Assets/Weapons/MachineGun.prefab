@@ -48,13 +48,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ef216392c8f33409f2efcd91f4e510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _index: 0
   _range: 100
   _weaponDamage: 4
   _timeBetweenShots: 0.1
+  _timeBetweenReloads: 0
   _fpCamera: {fileID: 0}
   _muzzleFlash: {fileID: 0}
   _bulletImpact: {fileID: 252487699782519274, guid: 82851982cb47c134a8403ffcb052b9d2, type: 3}
   _ammo: {fileID: 5655468185604888337}
+  _canShoot: 0
 --- !u!114 &5655468185604888337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,10 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b8a4e9bfb741aa96889e5df5a06cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fovNormal: 0
-  _senseNormal: 0
-  _fovZoom: 0
-  _senseZoom: 0
+  _fovNormal: 40
+  _senseNormal: 1
+  _fovZoom: 20
+  _senseZoom: 0.5
   _input: {fileID: 0}
   _camera: {fileID: 0}
   _zoomedIn: 0
