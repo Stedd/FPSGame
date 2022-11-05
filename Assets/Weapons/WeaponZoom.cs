@@ -26,6 +26,11 @@ public class WeaponZoom : MonoBehaviour
         _fovNormal = _camera.m_Lens.FieldOfView;
     }
 
+    private void OnDisable()
+    {
+        _camera.m_Lens.FieldOfView = _fovNormal;
+    }
+
     private void Update()
     {
         if (!Mouse.current.rightButton.wasPressedThisFrame) return;
