@@ -66,15 +66,19 @@ MonoBehaviour:
   _ammoSlots:
   - <AmmoType>k__BackingField: 0
     <MaxBeltAmmoAmount>k__BackingField: 10
+    <StartingBeltAmmoAmount>k__BackingField: 2
     <CurrentBeltAmmoAmount>k__BackingField: 0
   - <AmmoType>k__BackingField: 1
     <MaxBeltAmmoAmount>k__BackingField: 30
+    <StartingBeltAmmoAmount>k__BackingField: 10
     <CurrentBeltAmmoAmount>k__BackingField: 0
   - <AmmoType>k__BackingField: 2
     <MaxBeltAmmoAmount>k__BackingField: 200
+    <StartingBeltAmmoAmount>k__BackingField: 45
     <CurrentBeltAmmoAmount>k__BackingField: 0
   - <AmmoType>k__BackingField: 3
     <MaxBeltAmmoAmount>k__BackingField: 15
+    <StartingBeltAmmoAmount>k__BackingField: 6
     <CurrentBeltAmmoAmount>k__BackingField: 0
   _S_currentBeltAmmoAmount: {fileID: 11400000, guid: f19d1fc1d5102a545800f4f8273640b1, type: 2}
   _currentWeaponAmmoType: 0

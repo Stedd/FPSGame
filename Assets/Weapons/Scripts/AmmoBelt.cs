@@ -21,6 +21,7 @@ public class AmmoBelt : MonoBehaviour
     {
         [field: SerializeField] public AmmoType AmmoType { get; set; }
         [field: SerializeField] public int MaxBeltAmmoAmount { get; set; }
+        [field: SerializeField] public int StartingBeltAmmoAmount { get; set; }
         [field: SerializeField] public int CurrentBeltAmmoAmount { get; set; }
     }
 
@@ -46,7 +47,7 @@ public class AmmoBelt : MonoBehaviour
     {
         foreach (AmmoSlot ammoSlot in _ammoSlots)
         {
-            ammoSlot.CurrentBeltAmmoAmount = ammoSlot.MaxBeltAmmoAmount;
+            ammoSlot.CurrentBeltAmmoAmount = ammoSlot.StartingBeltAmmoAmount;
         }
     }
 

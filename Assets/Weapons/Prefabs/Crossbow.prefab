@@ -80,7 +80,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ammoType: 0
-  _index: 0
   _range: 100
   _weaponDamage: 100
   _timeBetweenShots: 2
@@ -89,6 +88,7 @@ MonoBehaviour:
   _muzzleFlash: {fileID: 0}
   _bulletImpact: {fileID: 252487699782519274, guid: 82851982cb47c134a8403ffcb052b9d2, type: 3}
   _ammo: {fileID: 1537282594975695390}
+  _index: 0
   _canShoot: 0
 --- !u!114 &1537282594975695390
 MonoBehaviour:
@@ -106,7 +106,6 @@ MonoBehaviour:
   _maxMagAmmoAmount: 1
   _currentMagAmmoAmount: 0
   _ammoBelt: {fileID: 0}
-  _S_currentBeltAmmoAmount: {fileID: 11400000, guid: f19d1fc1d5102a545800f4f8273640b1, type: 2}
   _S_currentMagAmmoAmount: {fileID: 11400000, guid: 9a77ec14c64717643bed1c6e7a3885ae, type: 2}
 --- !u!114 &7047714336720636310
 MonoBehaviour:

@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ef216392c8f33409f2efcd91f4e510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ammoType: 1
+  _ammoType: 2
   _range: 100
-  _weaponDamage: 4
+  _weaponDamage: 9.090909
   _timeBetweenShots: 0.1
   _timeBetweenReloads: 1.5
   _fpCamera: {fileID: 0}

@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ef216392c8f33409f2efcd91f4e510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ammoType: 2
+  _ammoType: 1
   _range: 100
-  _weaponDamage: 25
-  _timeBetweenShots: 0.5
+  _weaponDamage: 16.666666
+  _timeBetweenShots: 0.25
   _timeBetweenReloads: 1.5
   _fpCamera: {fileID: 0}
   _muzzleFlash: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ammoType: 1
-  _maxMagAmmoAmount: 4
+  _maxMagAmmoAmount: 12
   _currentMagAmmoAmount: 0
   _ammoBelt: {fileID: 0}
   _S_currentMagAmmoAmount: {fileID: 11400000, guid: 9a77ec14c64717643bed1c6e7a3885ae, type: 2}
