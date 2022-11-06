@@ -6,9 +6,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] private float _maxHealth = 100f;
     [Header("State")]
     [SerializeField] private float _health;
+    [field: SerializeField] public bool IsDead { get; private set; }
 
     private void OnEnable()
     {
+        IsDead = false;
         _health = _maxHealth;
     }
 
@@ -16,8 +18,14 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         _health += healthChange;
         if (!(_health <= 0)) return;
+        HandleDeath();
+    }
+
+    private void HandleDeath()
+    {
+        IsDead = true;
         print("Ded");
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     public void SetHealth(float newHealth)

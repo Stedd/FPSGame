@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,12 +11,15 @@ public class EnemyAI : MonoBehaviour, IAggroable
     [Header("State")]
     [SerializeField] private Transform _target;
     [SerializeField] private bool _isProvoked;
+    [SerializeField] private bool _isDead;
 
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
+    private EnemyHealth _enemyHealth;
     private static readonly int MoveAnimation = Animator.StringToHash("Move");
     private static readonly int AttackAnimation = Animator.StringToHash("Attack");
     private static readonly int IdleAnimation = Animator.StringToHash("Idle");
+    private static readonly int DeathAnimation = Animator.StringToHash("Die");
 
     public bool IsProvoked
     {
@@ -32,20 +36,30 @@ public class EnemyAI : MonoBehaviour, IAggroable
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
+        _enemyHealth = GetComponent<EnemyHealth>();
+        SetStopDistance(_attackRange * 0.9f);
     }
 
     private void Update()
     {
-        SetStopDistance(_attackRange * 0.9f);
-
-        if (DistanceToTarget(_target.position) < _detectRange)
+        if (!_isDead)
         {
-            _isProvoked = true;
-        }
+            if (DistanceToTarget(_target.position) < _detectRange)
+            {
+                _isProvoked = true;
+            }
 
-        if (_isProvoked)
-        {
-            EngageTarget();
+            if (_isProvoked)
+            {
+                EngageTarget();
+            }
+
+            if (_enemyHealth.IsDead)
+            {
+                _animator.SetTrigger(DeathAnimation);
+                _navMeshAgent.isStopped = true;
+                _isDead = true;
+            }
         }
     }
 
