@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BatteryPickup : MonoBehaviour
@@ -12,15 +9,15 @@ public class BatteryPickup : MonoBehaviour
     {
         print("Battery Pickup" + other);
         var flashLight = other.GetComponentInChildren<FlashLight>();
-        var amountBefore = flashLight.CurrentCharge;
+        float amountBefore = flashLight.CurrentCharge;
         if (flashLight != null)
         {
             flashLight.ModifyCharge(_pickupAmount);
         }
 
-        var amountAfter = flashLight.CurrentCharge;
+        float amountAfter = flashLight.CurrentCharge;
 
-        if (amountBefore != amountAfter)
+        if (Mathf.Approximately(amountBefore, amountAfter))
         {
             Destroy(gameObject.transform.parent.gameObject);
         }

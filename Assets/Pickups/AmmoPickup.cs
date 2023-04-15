@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour
@@ -12,13 +9,13 @@ public class AmmoPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var ammoBelt = other.GetComponentInChildren<AmmoBelt>();
-        var amountBefore = ammoBelt.GetBeltCurrentAmmoAmount(_ammoType);
+        int amountBefore = ammoBelt.GetBeltCurrentAmmoAmount(_ammoType);
         if (ammoBelt != null)
         {
             ammoBelt.ModifyBeltCurrentAmmoAmount(_ammoType, _pickupAmount);
         }
 
-        var amountAfter = ammoBelt.GetBeltCurrentAmmoAmount(_ammoType);
+        int amountAfter = ammoBelt.GetBeltCurrentAmmoAmount(_ammoType);
 
         if (amountBefore != amountAfter)
         {

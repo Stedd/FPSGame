@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -40,7 +37,7 @@ public class FlashLight : MonoBehaviour
         {
             CurrentCharge -= _powerDraw * Time.deltaTime;
             CurrentCharge = Mathf.Clamp(CurrentCharge, 0, _maxCharge);
-            if (CurrentCharge == 0)
+            if (CurrentCharge >= 0)
             {
                 FlashLightOff();
             }
@@ -52,6 +49,7 @@ public class FlashLight : MonoBehaviour
     private void FlashLightOff()
     {
         _light.enabled = false;
+        _isActive = false;
     }
 
     private void FlashLightOn()
